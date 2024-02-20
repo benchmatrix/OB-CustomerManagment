@@ -74,6 +74,7 @@ custom:
 functions:
   FirstEntry:
     handler: src/services/FirstEntry.handler
+    timeout: 60 # Corrected key for timeout
     description: POST /src/services/FirstEntry
     events:
       - http:
@@ -82,6 +83,7 @@ functions:
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
+
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

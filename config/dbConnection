@@ -1,24 +1,27 @@
 const sql = require('mssql');
 
 const config = {
+  server: 'DESKTOP-M7PNJGI',
+  port: 1433,
   user: 'sa',
   password: 'benchmatrix786?',
-  port:1435,
-  server: 'pak.risknucleus.com',
   database: 'OpenBank_ASB',
-  trustServerCertificate:true
-  
+  options: {
+    encrypt: true,
+    trustServerCertificate: true // Add this line if needed
+  }
 };
+
 const pool = new sql.ConnectionPool(config);
 
-exports.connectDB = () => {
-  return new Promise((resolve, reject) => {
-    pool.connect()
-    .then(() => {
-      console.log('Connected to MSSQL database');
-    })
-    .catch((error) => {
-      console.error('Error connecting to MSSQL database:', error);
-    });
-  });
+exports.connectDB = async () => {
+  try {
+    await pool.connect();
+    console.log('Connected to MSSQL database');
+  } catch (error) {
+    console.error('Error connecting to MSSQL database:', error);
+    throw error; // Rethrow the error to reject the promise
+  }
 };
+
+exports.pool = pool; // Export the pool object along with connectDB
