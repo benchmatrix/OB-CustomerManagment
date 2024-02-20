@@ -1,10 +1,10 @@
 const sql = require('mssql');
 
 const config = {
-  server: 'DESKTOP-M7PNJGI',
-  port: 1433,
   user: 'sa',
   password: 'benchmatrix786?',
+  port:1435,
+  server: 'pak.risknucleus.com',
   database: 'OpenBank_ASB',
   options: {
     encrypt: true,
