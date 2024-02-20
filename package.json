@@ -1,0 +1,41 @@
+{
+  
+  "version": "1.0.0",
+  
+  "description": "Customer Login Logout and Signup",
+  
+  "main": "handler.js",
+  
+  "dependencies": {
+  
+    
+  "mssql": "^10.0.2",
+  
+    
+  "serverless-dotenv-plugin": "^6.0.0",
+  
+    
+  "serverless-offline": "^13.3.3",
+  
+    
+  "sql": "^0.78.0"
+  
+  },
+  
+  "scripts": {
+  
+    
+  "start": "sls offline start",
+  
+    
+  "lint": "prettier --write '**/*.js'",
+  
+    
+  "test": "echo \"Error: no test specified\" && exit 1"
+  
+  },
+  
+  "author": "BenchMatrix",
+  
+  "license": "BM"
+}

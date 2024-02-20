@@ -23,6 +23,19 @@ service: ob-customermanagment
 provider:
   name: aws
   runtime: nodejs18.x
+  stage: dev
+  
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+custom:
+  allowedHeaders:
+    - Accept
+    - Content-Type
+    - Content-Length
+    - Authorization
+  stage: ${opt:stage, self:provider.stage}
 
 # you can overwrite defaults here
 #  stage: dev
@@ -59,10 +72,16 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  RandomNumber:
-    handler: Src/handler.RandomNumber
-    timout: 60
-    memorySize: 128
+  FirstEntry:
+    handler: src/services/FirstEntry.handler
+    description: POST /src/services/FirstEntry
+    events:
+      - http:
+          path: src/services/FirstEntry
+          method: post
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
