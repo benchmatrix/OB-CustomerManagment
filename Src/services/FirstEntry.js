@@ -22,6 +22,8 @@ module.exports.handler = async (event) => {
         });
         connection.release();
       });
+
+      
     });
     return response;
   } catch (err) {
