@@ -22,6 +22,8 @@ exports.handler = async (event) => {
         console.log("SQL query executed successfully");
         resolve(result);
       });
+
+      
     });
 
     const response = {
