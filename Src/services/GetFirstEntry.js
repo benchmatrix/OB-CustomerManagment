@@ -1,8 +1,9 @@
 require("dotenv").config(); 
 const { connectDB ,pool} = require("../../config/dbConnection");
 const checkNull = require('../utlities/validation');
-const execute = require('../utlities/databasecomunication');
-const getDataFromQuery = require("../utlities/databasecomunication");
+
+
+const getDataFromQuery = require('../utlities/databasecomunication');
 exports.handler = async (event) => {
     try {
   
@@ -18,11 +19,17 @@ exports.handler = async (event) => {
       // const data = [FirstentryJson.JS, FirstentryJson.add];
      const sql = "select * from FirstEntry where id="+checkNull(IDS);
      console.log("Executing SQL query:", sql);
-     const dta=getDataFromQuery(sql);
-     console.log(dta);
-     return dta;
-  
-  
+     const data =await getDataFromQuery(sql);
+     console.log(data);
+     console.log(data.length);
+     console.log(data[0].Id);
+     console.log(data[0].Title);
+     return {
+      statusCode: 200,
+      body: JSON.stringify(data),
+  };
+    // return data;
+     //result.recordset[0].InsertedId
     
   } catch (e) {
     console.log("Encountered an error:", e);
