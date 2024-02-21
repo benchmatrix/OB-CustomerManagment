@@ -84,6 +84,21 @@ functions:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
 
+  GetFirstEntry:
+    handler: src/services/GetFirstEntry.handler
+    timeout: 60 # Corrected key for timeout
+    description: get /src/services/GetFirstEntry{ID}
+    events:
+      - http:
+          path: src/services/GetFirstEntry{ID}
+          method: get
+          request:
+            parameters:
+              paths:
+                ID: true
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
