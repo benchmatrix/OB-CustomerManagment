@@ -6,7 +6,7 @@ phases:
       nodejs: 12
     commands:
       - echo "Installing npm dependencies"
-      - npm ci
+      - npm install
     post_build:
       commands:
         - echo "Adding additional dependencies"
