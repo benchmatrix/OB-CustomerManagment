@@ -100,6 +100,46 @@ functions:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
 
+ 
+  signup:
+    handler: src/services/signup.handler
+    timeout: 60 # Corrected key for timeout
+    description: POST /src/services/signup
+    events:
+      - http:
+          path: src/services/signup
+          method: post
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}  
+
+
+  verifyAccount:
+    handler: src/services/verifyAccount.handler
+    timeout: 60 # Corrected key for timeout
+    description: POST /src/services/verifyAccount
+    events:
+      - http:
+          path: src/services/verifyAccount
+          method: post
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}       
+
+
+  login:
+    handler: src/services/login.handler
+    timeout: 60 # Corrected key for timeout
+    description: POST /src/services/login
+    events:
+      - http:
+          path: src/services/login
+          method: post
+          cors:
+            origin: '*'
+            headers: ${self:custom.allowedHeaders}                      
+
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
