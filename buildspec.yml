@@ -18,8 +18,10 @@ build:
   commands:
     - echo "Running build commands"
     - npm run build
+    - zip -r artifacts.zip build/
+    
 
 artifacts:
   files:
-    - '**/*'
-    - '!node_modules/**/*'
+    - artifacts.zip
+    
