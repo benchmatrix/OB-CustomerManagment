@@ -18,7 +18,7 @@ build:
   commands:
     - echo "Running build commands"
     - npm run build
-    - zip -r artifacts.zip build/
+     - zip -r build/artifacts.zip *
     
 
 artifacts:
